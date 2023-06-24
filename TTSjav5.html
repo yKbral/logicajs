@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lista de Compras</title>
+</head>
+<body>
+  <h1>Lista de Compras</h1>
+
+  <button onclick="adicionarItem()">Adicionar Item</button>
+  <button onclick="exibirLista()">Exibir Lista</button>
+
+  <div id="lista-compras"></div>
+
+  <script>
+    // Array para armazenar os itens da lista de compras
+    const listaCompras = {
+      Frutas: [],
+      Laticínios: [],
+      Congelados: [],
+      Doces: []
+    };
+
+    // Função para adicionar um item à lista de compras
+    function adicionarItem() {
+      const resposta = prompt("Deseja adicionar uma comida na lista de compras? (sim ou não)");
+
+      if (resposta.toLowerCase() === "sim") {
+        const comida = prompt("Qual comida você deseja adicionar?");
+        const categoria = prompt("Em qual categoria essa comida se encaixa (frutas, laticínios, congelados, doces)?");
+
+        if (listaCompras.hasOwnProperty(categoria)) {
+          listaCompras[categoria].push(comida);
+        } else {
+          console.log("Categoria inválida!");
+        }
+
+        adicionarItem(); // Chamada recursiva para adicionar mais itens
+      } else if (resposta.toLowerCase() !== "não") {
+        console.log("Resposta inválida! Digite 'sim' ou 'não'.");
+        adicionarItem(); // Chamada recursiva se a resposta for inválida
+      }
+    }
+
+    // Função para exibir a lista de compras
+    function exibirLista() {
+      const listaElement = document.getElementById("lista-compras");
+      listaElement.innerHTML = "<h2>Lista de compras:</h2>";
+
+      for (const categoria in listaCompras) {
+        const itens = listaCompras[categoria];
+        const categoriaElement = document.createElement("p");
+        categoriaElement.innerHTML = `<strong>${categoria}:</strong> ${itens.join(", ")}`;
+        listaElement.appendChild(categoriaElement);
+      }
+    }
+  </script>
+</body>
+</html>
+
+
