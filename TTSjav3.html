@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Jogo de Aprendizado de Programação</title>
+</head>
+<body>
+  <h1>Bem-vindo(a) ao jogo de aprendizado de programação!</h1>
+
+  <p>Escolha uma das opções a seguir:</p>
+  <button onclick="escolherArea('front-end')">Seguir para a área de Front-End</button>
+  <button onclick="escolherArea('back-end')">Seguir para a área de Back-End</button>
+
+  <script>
+    function escolherArea(area) {
+      if (area === 'front-end') {
+        alert('Ótimo! Você escolheu a área de Front-End.');
+
+        const escolhaFrontend = prompt('Agora escolha uma das opções a seguir:\n1. Aprender React\n2. Aprender Vue');
+
+        if (escolhaFrontend === '1') {
+          alert('Excelente escolha! React é uma tecnologia muito popular no desenvolvimento de interfaces.');
+        } else if (escolhaFrontend === '2') {
+          alert('Ótimo! Vue é um framework muito versátil e fácil de aprender.');
+        } else {
+          alert('Opção inválida!');
+        }
+      } else if (area === 'back-end') {
+        alert('Ótimo! Você escolheu a área de Back-End.');
+
+        const escolhaBackend = prompt('Agora escolha uma das opções a seguir:\n1. Aprender C#\n2. Aprender Java');
+
+        if (escolhaBackend === '1') {
+          alert('Excelente escolha! C# é uma linguagem poderosa e muito utilizada no desenvolvimento de sistemas.');
+        } else if (escolhaBackend === '2') {
+          alert('Ótimo! Java é uma linguagem versátil e amplamente adotada na indústria.');
+        } else {
+          alert('Opção inválida!');
+        }
+      } else {
+        alert('Opção inválida!');
+      }
+
+      const proximoPasso = prompt('Agora você pode escolher o próximo passo:\n1. Seguir se especializando na área escolhida\n2. Seguir se desenvolvendo para se tornar Fullstack');
+
+      if (proximoPasso === '1') {
+        alert('Parabéns! Você escolheu seguir se especializando na área escolhida.');
+      } else if (proximoPasso === '2') {
+        alert('Ótimo! Você escolheu seguir se desenvolvendo para se tornar Fullstack.');
+      } else {
+        alert('Opção inválida!');
+      }
+
+      const tecnologias = [];
+      let resposta;
+
+      do {
+        resposta = prompt('Tem mais alguma tecnologia que você gostaria de aprender? (Digite "ok" para continuar ou "sair" para encerrar)');
+
+        if (resposta.toLowerCase() !== 'sair' && resposta.toLowerCase() !== 'ok') {
+          tecnologias.push(resposta);
+          alert(`${resposta} é uma tecnologia interessante para se aprender!`);
+        }
+      } while (resposta.toLowerCase() !== 'sair');
+
+      alert('Parabéns por concluir o jogo! Você selecionou as seguintes tecnologias para aprender:\n' + tecnologias.join('\n'));
+    }
+  </script>
+</body>
+</html>
+
