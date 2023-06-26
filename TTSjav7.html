@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calculadora</title>
+  <script>
+    function soma() {
+      var num1 = parseFloat(prompt("Digite o primeiro número:"));
+      var num2 = parseFloat(prompt("Digite o segundo número:"));
+      var resultado = num1 + num2;
+      alert("O resultado da soma é: " + resultado);
+    }
+    
+    function subtracao() {
+      var num1 = parseFloat(prompt("Digite o primeiro número:"));
+      var num2 = parseFloat(prompt("Digite o segundo número:"));
+      var resultado = num1 - num2;
+      alert("O resultado da subtração é: " + resultado);
+    }
+    
+    function multiplicacao() {
+      var num1 = parseFloat(prompt("Digite o primeiro número:"));
+      var num2 = parseFloat(prompt("Digite o segundo número:"));
+      var resultado = num1 * num2;
+      alert("O resultado da multiplicação é: " + resultado);
+    }
+    
+    function divisao() {
+      var num1 = parseFloat(prompt("Digite o primeiro número:"));
+      var num2 = parseFloat(prompt("Digite o segundo número:"));
+      if (num2 === 0) {
+        alert("Erro: divisão por zero!");
+      } else {
+        var resultado = num1 / num2;
+        alert("O resultado da divisão é: " + resultado);
+      }
+    }
+    
+    function calcular() {
+      var opcao = prompt("Escolha uma operação: \n1 - Soma \n2 - Subtração \n3 - Multiplicação \n4 - Divisão \n5 - Sair");
+      
+      switch(opcao) {
+        case '1':
+          soma();
+          break;
+        case '2':
+          subtracao();
+          break;
+        case '3':
+          multiplicacao();
+          break;
+        case '4':
+          divisao();
+          break;
+        case '5':
+          alert("Até a próxima!");
+          break;
+        default:
+          alert("Opção inválida!");
+          break;
+      }
+    }
+  </script>
+</head>
+<body>
+  <button onclick="calcular()">Calcular</button>
+</body>
+</html>
